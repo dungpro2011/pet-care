@@ -1,0 +1,20 @@
+scalar Date
+scalar JSON
+scalar Float
+scalar Any
+
+"""
+directive
+"""
+directive @auth(level: Int!) on FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+"""
+`select`
+"""
+input select {
+  skip: Int
+  limit: Int
+  sort: Any
+  find: String
+  search: String
+}

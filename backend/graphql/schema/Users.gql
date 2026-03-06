@@ -1,0 +1,63 @@
+type User {
+  _id: ID
+  T1001_CODE: String
+  T1001_USERNAME: String
+  T1001_FULL_NAME: String
+  T1001_MAIL: String
+  T1001_PHONE: String
+  T1001_AVATAR: String
+  T1001_INFOR: JSON
+  T1001_ROLE: String
+  T1001_SUPER_ADMIN: Boolean
+  FILE_AVATAR: File
+}
+
+type Users {
+  data: [User]
+  total: Int
+}
+
+type Query {
+  Users(select: select): Users
+  User: User
+}
+
+type Mutation {
+  User_create(
+    T1001_CODE: String
+    T1001_USERNAME: String
+    T1001_PASSWORD: String
+    T1001_FULL_NAME: String
+    T1001_MAIL: String
+    T1001_PHONE: String
+    T1001_AVATAR: String
+    T1001_INFOR: JSON
+    T1001_ROLE: String!
+  ): User
+  User_update(
+    _id: ID!
+    T1001_CODE: String
+    T1001_USERNAME: String
+    T1001_PASSWORD: String
+    T1001_OLD_PASSWORD: String
+    T1001_FULL_NAME: String
+    T1001_MAIL: String
+    T1001_PHONE: String
+    T1001_AVATAR: String
+    T1001_INFOR: JSON
+    T1001_ROLE: String!
+  ): User
+  User_admin_update(
+    _id: ID!
+    T1001_CODE: String
+    T1001_USERNAME: String
+    T1001_PASSWORD: String
+    T1001_FULL_NAME: String
+    T1001_MAIL: String
+    T1001_PHONE: String
+    T1001_AVATAR: String
+    T1001_INFOR: JSON
+    T1001_ROLE: String!
+  ): User
+  User_delete(_id: ID!): Boolean
+}

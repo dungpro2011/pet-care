@@ -1,0 +1,23 @@
+type UserMaster {
+    _id: ID
+    username: String
+    full_name: String
+    is_lock: Boolean
+}
+
+type UserMasters {
+    data: [UserMaster]
+    total: Int
+}
+
+type Query {
+    UserMasters(select: select): UserMasters
+    UserMaster(_id: ID!): UserMaster
+}
+
+type Mutation {
+    UserMaster_create(username: String, full_name: String, is_lock: Boolean, password: String): UserMaster
+    UserMaster_update(username: String, full_name: String, is_lock: Boolean, password: String): UserMaster
+
+    UserMaster_delete(list_id: [ID]): Boolean
+}

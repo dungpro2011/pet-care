@@ -1,0 +1,18 @@
+type LogLogin {
+    _id: ID
+    T8000_USER: JSON
+    T8000_ACESS_TOKEN: String
+    T8000_USER_IP: String
+    T8000_HEADERS: JSON
+    T8000_TIME: String
+}
+
+type LogLogins {
+    data: [LogLogin]
+    total: Int
+}
+
+type Query {
+    LogLogins(select: select): LogLogins
+}
+

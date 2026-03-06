@@ -1,0 +1,38 @@
+type login {
+  token: String
+  change_password: Boolean
+  data_change_password: Float
+  client_secret: String
+  data: User
+}
+type LoginMaster {
+  token: String
+  data: UserMaster
+}
+
+type SetingAdministrator {
+  is_complex_password: Int
+  password_length: Int
+  max_login: Int
+  lockout_time: Int
+  password_expire: Int
+  password_old: Int
+}
+type Query {
+  SetingAdministrator: SetingAdministrator
+  login(username: String!, password: String!): login
+  reset_token(username: String!, client_secret: String!, bio: Boolean): login
+  LoginMaster(username: String!, password: String!): LoginMaster
+  check_password(password: String!): Boolean
+}
+
+type Mutation {
+  SetingAdministrator_update(
+    is_complex_password: Int
+    password_length: Int
+    max_login: Int
+    lockout_time: Int
+    password_expire: Int
+    password_old: Int
+  ): SetingAdministrator
+}

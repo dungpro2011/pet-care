@@ -1,0 +1,9 @@
+type File {
+  _id: ID
+  FILE: String
+}
+
+type Files {
+  data: [File]
+  total: Int
+}
